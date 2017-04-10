@@ -1,0 +1,1 @@
+/usr/bin/c++   -O3 -DNDEBUG   CMakeFiles/Arvorebinaria.dir/main.cpp.o CMakeFiles/Arvorebinaria.dir/node.cpp.o CMakeFiles/Arvorebinaria.dir/Arvore.cpp.o CMakeFiles/Arvorebinaria.dir/Buscabinaria.cpp.o  -o Arvorebinaria 
