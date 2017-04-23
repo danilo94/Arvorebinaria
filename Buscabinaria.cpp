@@ -15,7 +15,8 @@ Buscabinaria::Buscabinaria(int size) {
 void Buscabinaria::populaVetor() {
     srand(time(nullptr));
     vetor[0]=20;
-    for (int i=1; i<tam; i++){
+    vetor[1]=-30;
+    for (int i=2; i<tam; i++){
         vetor[i] = rand()%tam*2+30;
     }
     isCheio=true;
@@ -122,3 +123,22 @@ int Buscabinaria::Busca(int elemento,int tipoBusca) {
             break;
     }
 }
+
+int Buscabinaria::RiddleReq(int *vet,int tamanho) {
+    if (tamanho==1){
+        return vet[0];
+    }else{
+        int temp = RiddleReq(vet,tamanho-1);
+        if (temp<vet[tamanho-1]){
+            return temp;
+        }else{
+            return vet[tamanho-1];
+        }
+    }
+
+}
+
+int Buscabinaria::Riddle() {
+    RiddleReq(vetor,tam);
+}
+

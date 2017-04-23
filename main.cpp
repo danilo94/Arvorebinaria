@@ -10,8 +10,10 @@ void menuBuscaBinaria();
 
 int main() {
     srand(time(nullptr));
-    menu();
-
+ //   menu();
+    Buscabinaria b1(10);
+    b1.populaVetor();
+    cout << b1.Riddle();
 
     return 0;
 }

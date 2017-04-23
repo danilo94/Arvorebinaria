@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/danilo/CLionProjects/Arvorebinaria/Arvore.cpp
+cstdlib
+-
+iostream
+-
+Arvore.h
+/home/danilo/CLionProjects/Arvorebinaria/Arvore.h
+
+/home/danilo/CLionProjects/Arvorebinaria/Arvore.h
+node.h
+/home/danilo/CLionProjects/Arvorebinaria/node.h
+
+/home/danilo/CLionProjects/Arvorebinaria/Buscabinaria.cpp
+iostream
+-
+Buscabinaria.h
+/home/danilo/CLionProjects/Arvorebinaria/Buscabinaria.h
+
+/home/danilo/CLionProjects/Arvorebinaria/Buscabinaria.h
+cstdlib
+-
+time.h
+-
+
+/home/danilo/CLionProjects/Arvorebinaria/main.cpp
+iostream
+-
+Arvore.h
+/home/danilo/CLionProjects/Arvorebinaria/Arvore.h
+Buscabinaria.h
+/home/danilo/CLionProjects/Arvorebinaria/Buscabinaria.h
+
+/home/danilo/CLionProjects/Arvorebinaria/node.cpp
+node.h
+/home/danilo/CLionProjects/Arvorebinaria/node.h
+
+/home/danilo/CLionProjects/Arvorebinaria/node.h
+

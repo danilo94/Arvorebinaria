@@ -20,9 +20,9 @@ private:
     bool excluirReq(node **raiz, int elemento);
     int maior(int,int);
     int contaFolhasReq(node *raiz);
-    node *MaiorDireita(node **raiz);
     char *setw(int);
     void DestroyR(node **raiz);
+    node *minimo(node *raiz);
 
 public:
     bool excluir(int elemento);

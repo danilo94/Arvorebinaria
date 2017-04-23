@@ -45,7 +45,7 @@ void Arvore::print() {
 void Arvore::printRecursivo(node *raiz,int nivel) {
     if (raiz!= nullptr){
         printRecursivo(raiz->esq,nivel+1);
-        std::cout << setw(nivel*3) << (raiz->getElemento()) <<std::endl;
+        std::cout <<  (raiz->getElemento()) <<std::endl;
         printRecursivo(raiz->dir,nivel+1);
     }
 }
@@ -87,8 +87,7 @@ int Arvore::RetiraMaiorReq(node *raiz, node *anterior) {
     }else{
         if (raiz->dir== nullptr){
             int value = raiz->getElemento();
-            delete (raiz);
-            anterior->setDir(nullptr);
+            excluir(value);
             return value;
         }
         else {
@@ -133,7 +132,7 @@ bool Arvore::excluirReq(node **raiz, int elemento) {
      * Nó com dois filhos: é buscado o filho Maior da sub-árvore direita, o mesmo é copiado para o local onde o nó a ser removido está, e o mesmo é removido
      * Já que se trata de um nó folha
     */
-    node *aux;
+    node *aux ;
     if ((*raiz)== nullptr){
         return false;
     } else{
@@ -144,18 +143,21 @@ bool Arvore::excluirReq(node **raiz, int elemento) {
         }if (elemento>(*raiz)->getElemento()){
             excluirReq(&(*raiz)->dir,elemento);
         }else {
+            if ((*raiz)->getElemento()!=elemento)
+                return false;
             if ((*raiz)->dir != nullptr && (*raiz)->esq != nullptr){
-                aux = MaiorDireita(&(*raiz)->esq);
+                aux = minimo((*raiz)->dir);
+                //aux = MaiorDireita(&(*raiz)->esq);
                 (*raiz)->setElemento(aux->getElemento());
                 excluirReq(&(*raiz)->dir,(*raiz)->getElemento());
             }
             else{
                 aux = *raiz;
                 if ((*raiz)->esq== nullptr){
-                    *raiz = (*raiz)->dir;
+                    (*raiz) = (*raiz)->dir;
                 }
                 else{
-                    *raiz = (*raiz)->esq;
+                    (*raiz) = (*raiz)->esq;
                 }
                 nodos--;
                 delete(aux);
@@ -174,10 +176,11 @@ char *Arvore::setw(int nivel) {
 }
 
 
+
+
+
 int Arvore::contaFolhasReq(node *raiz) {
     // Percorre toda a árvore, e sempre que encontra um elemento que tenha tanto os ponteiros dir quanto esq null incrementa 1
-
-
     if (raiz== nullptr){
         return 0;
     }
@@ -195,23 +198,7 @@ int Arvore::nosInternos() {
     return  nodos - contaFolhasReq(raiz);
 }
 
-node *Arvore::MaiorDireita(node **raiz) {
-    // Percorre toda a árvore repassada como parâmetro até encontrar o maior elemento a sua direita
 
-    if((*raiz)->dir!= nullptr){
-        return  MaiorDireita(&(*raiz)->dir);
-    }
-    else{
-        node *aux = *raiz;
-        if((*raiz)->esq!= nullptr){
-            (*raiz) = (*raiz)->esq;
-        }
-        else{
-            *raiz= nullptr;
-        }
-        return  aux;
-    }
-}
 
 void Arvore::Destroy() {
     DestroyR(&raiz);
@@ -224,6 +211,20 @@ void Arvore::DestroyR(node **raiz) {
     }else{
         excluirReq(&(*raiz),(*raiz)->getElemento());
         DestroyR(&(*raiz));
+    }
+}
+
+node *Arvore::minimo(node *raiz) { //Encontra o Menor Valor de uma árvore de entrada
+
+    if (nodos==0){
+        return nullptr;
+    }else{
+        if(raiz->esq== nullptr){
+            return  raiz;
+        }
+        else {
+            return minimo(raiz->esq);
+        }
     }
 }
 

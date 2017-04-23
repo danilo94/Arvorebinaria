@@ -17,12 +17,15 @@ private:
     void QuicksortTotal (int *,int,int);
     int BuscaBinReq(int *,int elemento,int inicio,int fim);
     int BuscaIt(int elemento);
+    int RiddleReq(int *,int);
+
 public:
     Buscabinaria(int size);
     void populaVetor();
     void ordenaVetor();
     void printVetor();
     int Busca(int,int);
+    int Riddle();
 };
 
 
