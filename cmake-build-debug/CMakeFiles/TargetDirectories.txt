@@ -1,3 +1,0 @@
-/home/danilo/CLionProjects/Arvorebinaria/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/danilo/CLionProjects/Arvorebinaria/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/danilo/CLionProjects/Arvorebinaria/cmake-build-debug/CMakeFiles/Arvorebinaria.dir
